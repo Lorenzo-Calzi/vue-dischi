@@ -3,26 +3,14 @@ const app = new Vue({
 
     data: {
         url: 'https://flynn.boolean.careers/exercises/api/array/music',
-        musicData: ''
-    }, 
-    methods: {
-        filter(){
-            document.getElementById('categorie').addEventListener('change', function(){
-                const genre = this.value
-                console.log(genre);
+        musicData: [],
+        genres: [],
+        selectedGenre: 'All',
 
-                if(genre!= 'all') {
-                    console.log('si');
-                    const filteredAlbums = this.musicData.filter((item) => {
-                        if(item.genre == genre) {
-                            return item
-                        }
-                    })
-                } else {
-                    console.log('no');
-                }
-            })
-        }
+    }, 
+
+    methods: {
+
     },
 
     mounted() {
@@ -31,10 +19,17 @@ const app = new Vue({
             .get(fullUrl)
             .then(resp => {
                 this.musicData = resp.data.response;
-        })
 
-        .catch(e => {
-            console.error(e)
+                this.musicData.forEach(element => {
+                    if(!this.genres.includes(element.genre)) {
+                        this.genres.push(element.genre)
+                    }
+                });
+                console.log(this.genres);
+            })
+
+            .catch(e => {
+                console.error(e)
         })
     }
 
