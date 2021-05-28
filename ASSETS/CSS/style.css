@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* HEADER */
+header{
+    width: 100%;
+    background-color: rgba(46, 58, 70, 1);
+}
+header i{
+    font-size: 60px;
+    padding: 10px;
+    color: rgba(30, 215, 96, 1);
+}
+/* HEADER */
+
+/* MAIN */
+main{
+    width: 100%;
+    background-color: rgba(30, 45, 59, 1);
+    padding-top: 100px;
+    
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+.album{
+   background-color: rgba(46, 58, 70, 1);
+   padding: 20px 20px 50px 20px;
+   margin: 20px;
+   display: inline-block;
+   text-align: center;
+   width: 220px;  
+}
+.album h2{
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+.album h5{
+    color: rgba(128, 128, 128, 1);
+    font-size: 22px;
+    font-weight: 400;
+}
+.album h6{
+    color: rgba(128, 128, 128, 1);
+    font-size: 15px;
+    font-weight: 400;
+}
+.album img{
+    height: 200px;
+    width: 180px;
+    padding-bottom: 20px;
+}
+/* /MAIN */
