@@ -18,17 +18,38 @@ header i{
 /* HEADER */
 
 /* MAIN */
+/* Select */
+.select{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+select{
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(30, 215, 96, 1);
+    background-color: rgba(46, 58, 70, 1);
+    color: white;
+}
+.select span{
+    font-size: 25px;
+    color: rgba(30, 215, 96, 1);
+    margin-right: 20px;
+    margin-top: 4px;
+}
+/* Select */
+
 main{
     width: 100%;
     background-color: rgba(30, 45, 59, 1);
-    padding-top: 100px;
+    padding-top: 50px;
     
 }
 .container{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-bottom: 10px;
 }
 .album{
    background-color: rgba(46, 58, 70, 1);
@@ -60,15 +81,3 @@ main{
     padding-bottom: 20px;
 }
 /* /MAIN */
-
-/* SELECT */
-.select{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-select{
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-}
