@@ -17,38 +17,40 @@
 <body>
     
     <div id="app">
-
-        <header>
+        <nav>
             <i class="fab fa-spotify"></i>
-        </header>
-
-        <main>
-
-            <div class="select">
-                <span>Choose The Genre</span>
-                <select v-model="selectedGenre" name="categorie" id="categorie">
-                    <option value="All">All</option>
-                    <option :value="genre" v-for="genre in genres">
-                        {{genre}}
-                    </option>
-                </select>
-
-            </div>
-            
-
-            <div class="container">
-
-                <div class="album "v-for="album in musicData" v-if="album.genre === selectedGenre || selectedGenre === 'All'">
-                    <img :src="album.poster" alt="copertine album">
-                    <h2>{{album.title}}</h2>
-                    <h5>{{album.author}}</h5>
-                    <h6>{{album.year}}</h6>
+            <div class="filters">
+                <div>
+                    <label for="genre">Select a genre</label>
+                    <select name="genre" id="genre" v-model="selected">
+                        <option disabled value="">Please select one</option>
+                        <option v-for="genre in genres" :value="genre">{{genre}}</option>
+                    </select>
                 </div>
 
-            </div>
+                <div class="sort" @click="sort(disks)">
 
-        </main>
-        
+                    <i v-if="!sorted || sorted === 'ASC'" title="filter by year"
+                        class="fas fa-sort-numeric-down fa-lg fa-fw"></i>
+                    <i v-if="sorted === 'DESC'" title="filter by year" class="fas fa-sort-numeric-up fa-lg fa-fw"></i>
+                </div>
+            </div>
+        </nav>
+        <div class="disks" v-if="!error">
+
+            <div class="disk" v-for="disk in disks" :key="disk.title"
+                v-if="disk.genre === selected || selected === 'all' ">
+                <img class="poster" :src="disk.poster" alt="disk.title">
+                <h3 class="title">
+                    {{disk.title}}
+                </h3>
+                <div class="meta">
+                    <div class="author">{{disk.author}}</div>
+                    <div class="year">{{disk.year}}</div>
+                </div>
+            </div>
+        </div>
+        <div v-else>{{error}}</div>
     </div>
 
 
